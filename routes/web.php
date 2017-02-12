@@ -17,4 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['prefix' => 'home', 'as' => 'home.'], function() {
+    Route::get('', ['as' => 'index', 'uses' => 'HomeController@index']);
+    Route::post('store', ['as' => 'store', 'uses' => 'HomeController@store']);
+    Route::get('{contact}', ['as' => 'edit', 'uses' => 'HomeController@edit']);
+    Route::put('{contact}', ['as' => 'update', 'uses' => 'HomeController@update']);
+});
+
+
+
