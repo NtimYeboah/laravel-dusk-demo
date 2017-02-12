@@ -10,8 +10,10 @@ use App\User;
 
 $factory->define(Contact::class, function(Faker\Generator $faker) {
     return [
+        'title' => 'Mrs.',
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
+        'gender' => 'Female',
         'email' => $faker->safeEmail,
         'contact_number' => $faker->phoneNumber,
         'address' => $faker->address,

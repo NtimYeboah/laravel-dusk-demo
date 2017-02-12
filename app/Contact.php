@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
-    protected $fillable = ['title', 'first_name', 'last_name', 'contact_number', 'address', 'owner_id'];
+    protected $fillable = ['title', 'first_name', 'last_name', 'email',
+        'contact_number', 'gender', 'address', 'owner_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -16,5 +17,14 @@ class Contact extends Model
         return $this->belongsTo(User::class, 'owner_id');
     }
 
-
+    /**
+     * Get contact's full name
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->attributes['title'] . ' '.
+        $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+    }
 }
