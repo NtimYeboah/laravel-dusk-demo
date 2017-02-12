@@ -6,7 +6,7 @@ A simple app to demonstrate integration test with Laravel Dusk
 and then run
 ```composer install``` to install the dependencies
 
-# Run dusk test
+# Run dusk tests
 ```php artisan dusk``` to run dusk tests
 
 # Run unit tests
