@@ -29,4 +29,13 @@ class ContactTest extends TestCase
         $this->assertInstanceOf(User::class, $contact->user);
         $this->assertEquals($user->id, $contact->user->id);
     }
+
+    public function test_contact_first_name()
+    {
+        $contact = factory(Contact::class)->create();
+        $fullName =$contact->title . ' ' . $contact->first_name . ' ' . $contact->last_name;
+
+        $this->assertInstanceOf(Contact::class, $contact);
+        $this->assertEquals($fullName, $contact->getFullName());
+    }
 }
