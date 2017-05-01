@@ -17,4 +17,5 @@ before_script:
   - php artisan serve &
 
 script:
+  - php artisan dusk
   - vendor/bin/phpunit --debug --no-coverage
